@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Expert Developer Search</title>
+	<style type="text/css">
+
+		section {
+			display: inline-block;
+		}
+
+		section.range-slider {
+			position: relative;
+			width: 200px;
+			height: 35px;
+			text-align: center;
+		}
+
+		section.range-slider input {
+			pointer-events: none;
+			position: absolute;
+			overflow: hidden;
+			left: 0;
+			top: 15px;
+			width: 200px;
+			outline: none;
+			height: 18px;
+			margin: 0;
+			padding: 0;
+		}
+
+		section.range-slider input::-webkit-slider-thumb {
+			pointer-events: all;
+			position: relative;
+			z-index: 1;
+			outline: 0;
+		}
+
+		section.range-slider input::-moz-range-thumb {
+			pointer-events: all;
+			position: relative;
+			z-index: 10;
+			-moz-appearance: none;
+			width: 9px;
+		}
+
+		section.range-slider input::-moz-range-track {
+			position: relative;
+			z-index: -1;
+			background-color: rgba(0, 0, 0, 1);
+			border: 0;
+		}
+		section.range-slider input:last-of-type::-moz-range-track {
+			-moz-appearance: none;
+			background: none transparent;
+			border: 0;
+		}
+		  section.range-slider input[type=range]::-moz-focus-outer {
+		  border: 0;
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Expert Developer Search:</h2>
+	<p>This search engine looks through the GitHub commit history of over 2 million developers and finds experts that best match your search criteria.</p>
+	<hr>
+
+	<form method="post" action="search">
+
+		<h3>General Developer Background</h3>
+
+		<label for="developer">Developer Name (to search by name):</label>
+		<input type="text" name="developer" />
+		<p></p>
+
+		<br>
+		<label for="total_duration">Total development experience:</label>
+		<input type="checkbox" name="total_duration">
+		<p><section class="range-slider">
+			<span class="rangeValues"></span>
+			<input value="6" min="1" max="180" step="1" type="range" name="total_duration_1">
+			<input value="24" min="1" max="180" step="1" type="range" name="total_duration_2">
+		</section>
+		</p><br>
+
+		<label for="repo">Contributed to repository whose name contains:</label>
+		<input type="text" name="repo" />
+		<p></p>
+
+		<!-- <label for="popular">Contributed to popular large open source repo:</label>
+		<input type="checkbox" name="popular" />
+		<p></p> -->
+
+		<label for="active">Currently active:</label>
+		<input type="checkbox" name="active" />
+		<p></p>
+
+		<hr>
+
+		<h3>Language/Framework Specific Background</h3>
+
+		<h4>Skill #1</h4>
+
+		<label for="language_1">Language/Framework:</label>
+  		<input list="language_1" name="language_1">
+		<datalist id="language_1">
+			<option value="1C Enterprise"><option value="ABAP"><option value="ABNF"><option value="ActionScript"><option value="Ada"><option value="Adobe Font Metrics"><option value="Agda"><option value="AGS Script"><option value="Alloy"><option value="AMPL"><option value="AngelScript"><option value="ANTLR"><option value="ApacheConf"><option value="Apex"><option value="API Blueprint"><option value="APL"><option value="Apollo Guidance Computer"><option value="AppleScript"><option value="Arc"><option value="AsciiDoc"><option value="ASN.1"><option value="ASP"><option value="AspectJ"><option value="Assembly"><option value="ATS"><option value="Augeas"><option value="AutoHotkey"><option value="AutoIt"><option value="Awk"><option value="Ballerina"><option value="Batchfile"><option value="Befunge"><option value="Bison"><option value="BitBake"><option value="Blade"><option value="BlitzBasic"><option value="BlitzMax"><option value="Bluespec"><option value="Boo"><option value="Brainfuck"><option value="Brightscript"><option value="Bro"><option value="C"><option value="C-ObjDump"><option value="C#"><option value="C++"><option value="C2hs Haskell"><option value="Cap'n Proto"><option value="CartoCSS"><option value="Ceylon"><option value="Chapel"><option value="Charity"><option value="ChucK"><option value="Cirru"><option value="Clarion"><option value="Clean"><option value="Click"><option value="CLIPS"><option value="Clojure"><option value="Closure Templates"><option value="CMake"><option value="COBOL"><option value="CoffeeScript"><option value="ColdFusion"><option value="ColdFusion CFC"><option value="COLLADA"><option value="Common Lisp"><option value="Common Workflow Language"><option value="Component Pascal"><option value="CoNLL-U"><option value="Cool"><option value="Coq"><option value="Cpp-ObjDump"><option value="Creole"><option value="Crystal"><option value="CSON"><option value="Csound"><option value="Csound Document"><option value="Csound Score"><option value="CSS"><option value="CSV"><option value="Cuda"><option value="CWeb"><option value="Cycript"><option value="Cython"><option value="D"><option value="D-ObjDump"><option value="Darcs Patch"><option value="Dart"><option value="DataWeave"><option value="desktop"><option value="Diff"><option value="DIGITAL Command Language"><option value="DM"><option value="DNS Zone"><option value="Dockerfile"><option value="Dogescript"><option value="DTrace"><option value="Dylan"><option value="E"><option value="Eagle"><option value="Easybuild"><option value="EBNF"><option value="eC"><option value="Ecere Projects"><option value="ECL"><option value="ECLiPSe"><option value="Edje Data Collection"><option value="edn"><option value="Eiffel"><option value="EJS"><option value="Elixir"><option value="Elm"><option value="Emacs Lisp"><option value="EmberScript"><option value="EQ"><option value="Erlang"><option value="F#"><option value="Factor"><option value="Fancy"><option value="Fantom"><option value="Filebench WML"><option value="Filterscript"><option value="fish"><option value="FLUX"><option value="Formatted"><option value="Forth"><option value="Fortran"><option value="FreeMarker"><option value="Frege"><option value="G-code"><option value="Game Maker Language"><option value="GAMS"><option value="GAP"><option value="GCC Machine Description"><option value="GDB"><option value="GDScript"><option value="Genie"><option value="Genshi"><option value="Gentoo Ebuild"><option value="Gentoo Eclass"><option value="Gerber Image"><option value="Gettext Catalog"><option value="Gherkin"><option value="GLSL"><option value="Glyph"><option value="GN"><option value="Gnuplot"><option value="Go"><option value="Golo"><option value="Gosu"><option value="Grace"><option value="Gradle"><option value="Grammatical Framework"><option value="Graph Modeling Language"><option value="GraphQL"><option value="Graphviz (DOT)"><option value="Groovy"><option value="Groovy Server Pages"><option value="Hack"><option value="Haml"><option value="Handlebars"><option value="Harbour"><option value="Haskell"><option value="Haxe"><option value="HCL"><option value="HLSL"><option value="HTML"><option value="HTML+Django"><option value="HTML+ECR"><option value="HTML+EEX"><option value="HTML+ERB"><option value="HTML+PHP"><option value="HTTP"><option value="Hy"><option value="HyPhy"><option value="IDL"><option value="Idris"><option value="IGOR Pro"><option value="Inform 7"><option value="INI"><option value="Inno Setup"><option value="Io"><option value="Ioke"><option value="IRC log"><option value="Isabelle"><option value="J"><option value="Jasmin"><option value="Java"><option value="Java Server Pages"><option value="JavaScript"><option value="JFlex"><option value="Jison"><option value="Jison Lex"><option value="Jolie"><option value="JSON"><option value="JSON5"><option value="JSONiq"><option value="JSONLD"><option value="JSX"><option value="Julia"><option value="Jupyter Notebook"><option value="KiCad Layout"><option value="KiCad Legacy Layout"><option value="KiCad Schematic"><option value="Kit"><option value="Kotlin"><option value="KRL"><option value="LabVIEW"><option value="Lasso"><option value="Latte"><option value="Lean"><option value="Less"><option value="Lex"><option value="LFE"><option value="LilyPond"><option value="Limbo"><option value="Linker Script"><option value="Linux Kernel Module"><option value="Liquid"><option value="Literate Agda"><option value="Literate CoffeeScript"><option value="Literate Haskell"><option value="LiveScript"><option value="LLVM"><option value="Logos"><option value="Logtalk"><option value="LOLCODE"><option value="LookML"><option value="LoomScript"><option value="LSL"><option value="Lua"><option value="M"><option value="M4"><option value="M4Sugar"><option value="Makefile"><option value="Mako"><option value="Markdown"><option value="Marko"><option value="Mask"><option value="Mathematica"><option value="Matlab"><option value="Max"><option value="MAXScript"><option value="MediaWiki"><option value="Mercury"><option value="Metal"><option value="MiniD"><option value="Mirah"><option value="Modelica"><option value="Modula-2"><option value="Module Management System"><option value="Monkey"><option value="Moocode"><option value="MoonScript"><option value="MQL4"><option value="MQL5"><option value="MTML"><option value="MUF"><option value="mupad"><option value="Myghty"><option value="NCL"><option value="Nearley"><option value="Nemerle"><option value="nesC"><option value="NetLinx"><option value="NetLinx+ERB"><option value="NetLogo"><option value="NewLisp"><option value="Nextflow"><option value="Nginx"><option value="Nim"><option value="Ninja"><option value="Nit"><option value="Nix"><option value="NL"><option value="NSIS"><option value="Nu"><option value="NumPy"><option value="ObjDump"><option value="Objective-C"><option value="Objective-C++"><option value="Objective-J"><option value="OCaml"><option value="Omgrofl"><option value="ooc"><option value="Opa"><option value="Opal"><option value="OpenCL"><option value="OpenEdge ABL"><option value="OpenSCAD"><option value="OpenType Feature File"><option value="Org"><option value="Ox"><option value="Oxygene"><option value="Oz"><option value="P4"><option value="Pan"><option value="Papyrus"><option value="Parrot"><option value="Parrot Assembly"><option value="Parrot Internal Representation"><option value="Pascal"><option value="PAWN"><option value="Pep8"><option value="Perl"><option value="Perl 6"><option value="PHP"><option value="Pic"><option value="Pickle"><option value="PicoLisp"><option value="PigLatin"><option value="Pike"><option value="PLpgSQL"><option value="PLSQL"><option value="Pod"><option value="PogoScript"><option value="Pony"><option value="PostCSS"><option value="PostScript"><option value="POV-Ray SDL"><option value="PowerBuilder"><option value="PowerShell"><option value="Processing"><option value="Prolog"><option value="Propeller Spin"><option value="Protocol Buffer"><option value="Public Key"><option value="Pug"><option value="Puppet"><option value="Pure Data"><option value="PureBasic"><option value="PureScript"><option value="Python"><option value="Python traceback"><option value="QMake"><option value="QML"><option value="R"><option value="Racket"><option value="Ragel"><option value="RAML"><option value="Rascal"><option value="Raw token data"><option value="RDoc"><option value="REALbasic"><option value="Reason"><option value="Rebol"><option value="Red"><option value="Redcode"><option value="Regular Expression"><option value="Ren'Py"><option value="RenderScript"><option value="reStructuredText"><option value="REXX"><option value="RHTML"><option value="Ring"><option value="RMarkdown"><option value="RobotFramework"><option value="Roff"><option value="Rouge"><option value="RPC"><option value="RPM Spec"><option value="Ruby"><option value="RUNOFF"><option value="Rust"><option value="Sage"><option value="SaltStack"><option value="SAS"><option value="Sass"><option value="Scala"><option value="Scaml"><option value="Scheme"><option value="Scilab"><option value="SCSS"><option value="Self"><option value="ShaderLab"><option value="Shell"><option value="ShellSession"><option value="Shen"><option value="Slash"><option value="Slim"><option value="Smali"><option value="Smalltalk"><option value="Smarty"><option value="SMT"><option value="SourcePawn"><option value="SPARQL"><option value="Spline Font Database"><option value="SQF"><option value="SQL"><option value="SQLPL"><option value="Squirrel"><option value="SRecode Template"><option value="Stan"><option value="Standard ML"><option value="Stata"><option value="STON"><option value="Stylus"><option value="Sublime Text Config"><option value="SubRip Text"><option value="SugarSS"><option value="SuperCollider"><option value="SVG"><option value="Swift"><option value="SystemVerilog"><option value="Tcl"><option value="Tcsh"><option value="Tea"><option value="Terra"><option value="TeX"><option value="Text"><option value="Textile"><option value="Thrift"><option value="TI Program"><option value="TLA"><option value="TOML"><option value="Turing"><option value="Turtle"><option value="Twig"><option value="TXL"><option value="Type Language"><option value="TypeScript"><option value="Unified Parallel C"><option value="Unity3D Asset"><option value="Unix Assembly"><option value="Uno"><option value="UnrealScript"><option value="UrWeb"><option value="Vala"><option value="VCL"><option value="Verilog"><option value="VHDL"><option value="Vim script"><option value="Visual Basic"><option value="Volt"><option value="Vue"><option value="Wavefront Material"><option value="Wavefront Object"><option value="wdl"><option value="Web Ontology Language"><option value="WebAssembly"><option value="WebIDL"><option value="wisp"><option value="World of Warcraft Addon Data"><option value="X10"><option value="xBase"><option value="XC"><option value="XML"><option value="Xojo"><option value="XPages"><option value="XPM"><option value="XProc"><option value="XQuery"><option value="XS"><option value="XSLT"><option value="Xtend"><option value="Yacc"><option value="YAML"><option value="YANG"><option value="YARA"><option value="Zephir"><option value="Zimpl">
+		</datalist>
+		<p></p>
+
+		<label for="language_1_duration">Experience:</label>
+		<input type="checkbox" name="language_1_duration">
+		<p><section class="range-slider">
+			<span class="rangeValues"></span>
+			<input value="6" min="1" max="180" step="1" type="range" name="language_1_duration_1">
+			<input value="24" min="1" max="180" step="1" type="range" name="language_1_duration_2">
+		</section>
+		</p><br>
+
+		<label for="language_1_frequency">Frequent contributor:</label>
+		<input type="checkbox" name="language_1_frequency" />
+		<br>
+
+		<h4>Skill #2</h4>
+
+		<label for="language_2">Language/Framework:</label>
+  		<input list="language_2" name="language_2">
+		<datalist id="language_2">
+			<option value="1C Enterprise"><option value="ABAP"><option value="ABNF"><option value="ActionScript"><option value="Ada"><option value="Adobe Font Metrics"><option value="Agda"><option value="AGS Script"><option value="Alloy"><option value="AMPL"><option value="AngelScript"><option value="ANTLR"><option value="ApacheConf"><option value="Apex"><option value="API Blueprint"><option value="APL"><option value="Apollo Guidance Computer"><option value="AppleScript"><option value="Arc"><option value="AsciiDoc"><option value="ASN.1"><option value="ASP"><option value="AspectJ"><option value="Assembly"><option value="ATS"><option value="Augeas"><option value="AutoHotkey"><option value="AutoIt"><option value="Awk"><option value="Ballerina"><option value="Batchfile"><option value="Befunge"><option value="Bison"><option value="BitBake"><option value="Blade"><option value="BlitzBasic"><option value="BlitzMax"><option value="Bluespec"><option value="Boo"><option value="Brainfuck"><option value="Brightscript"><option value="Bro"><option value="C"><option value="C-ObjDump"><option value="C#"><option value="C++"><option value="C2hs Haskell"><option value="Cap'n Proto"><option value="CartoCSS"><option value="Ceylon"><option value="Chapel"><option value="Charity"><option value="ChucK"><option value="Cirru"><option value="Clarion"><option value="Clean"><option value="Click"><option value="CLIPS"><option value="Clojure"><option value="Closure Templates"><option value="CMake"><option value="COBOL"><option value="CoffeeScript"><option value="ColdFusion"><option value="ColdFusion CFC"><option value="COLLADA"><option value="Common Lisp"><option value="Common Workflow Language"><option value="Component Pascal"><option value="CoNLL-U"><option value="Cool"><option value="Coq"><option value="Cpp-ObjDump"><option value="Creole"><option value="Crystal"><option value="CSON"><option value="Csound"><option value="Csound Document"><option value="Csound Score"><option value="CSS"><option value="CSV"><option value="Cuda"><option value="CWeb"><option value="Cycript"><option value="Cython"><option value="D"><option value="D-ObjDump"><option value="Darcs Patch"><option value="Dart"><option value="DataWeave"><option value="desktop"><option value="Diff"><option value="DIGITAL Command Language"><option value="DM"><option value="DNS Zone"><option value="Dockerfile"><option value="Dogescript"><option value="DTrace"><option value="Dylan"><option value="E"><option value="Eagle"><option value="Easybuild"><option value="EBNF"><option value="eC"><option value="Ecere Projects"><option value="ECL"><option value="ECLiPSe"><option value="Edje Data Collection"><option value="edn"><option value="Eiffel"><option value="EJS"><option value="Elixir"><option value="Elm"><option value="Emacs Lisp"><option value="EmberScript"><option value="EQ"><option value="Erlang"><option value="F#"><option value="Factor"><option value="Fancy"><option value="Fantom"><option value="Filebench WML"><option value="Filterscript"><option value="fish"><option value="FLUX"><option value="Formatted"><option value="Forth"><option value="Fortran"><option value="FreeMarker"><option value="Frege"><option value="G-code"><option value="Game Maker Language"><option value="GAMS"><option value="GAP"><option value="GCC Machine Description"><option value="GDB"><option value="GDScript"><option value="Genie"><option value="Genshi"><option value="Gentoo Ebuild"><option value="Gentoo Eclass"><option value="Gerber Image"><option value="Gettext Catalog"><option value="Gherkin"><option value="GLSL"><option value="Glyph"><option value="GN"><option value="Gnuplot"><option value="Go"><option value="Golo"><option value="Gosu"><option value="Grace"><option value="Gradle"><option value="Grammatical Framework"><option value="Graph Modeling Language"><option value="GraphQL"><option value="Graphviz (DOT)"><option value="Groovy"><option value="Groovy Server Pages"><option value="Hack"><option value="Haml"><option value="Handlebars"><option value="Harbour"><option value="Haskell"><option value="Haxe"><option value="HCL"><option value="HLSL"><option value="HTML"><option value="HTML+Django"><option value="HTML+ECR"><option value="HTML+EEX"><option value="HTML+ERB"><option value="HTML+PHP"><option value="HTTP"><option value="Hy"><option value="HyPhy"><option value="IDL"><option value="Idris"><option value="IGOR Pro"><option value="Inform 7"><option value="INI"><option value="Inno Setup"><option value="Io"><option value="Ioke"><option value="IRC log"><option value="Isabelle"><option value="J"><option value="Jasmin"><option value="Java"><option value="Java Server Pages"><option value="JavaScript"><option value="JFlex"><option value="Jison"><option value="Jison Lex"><option value="Jolie"><option value="JSON"><option value="JSON5"><option value="JSONiq"><option value="JSONLD"><option value="JSX"><option value="Julia"><option value="Jupyter Notebook"><option value="KiCad Layout"><option value="KiCad Legacy Layout"><option value="KiCad Schematic"><option value="Kit"><option value="Kotlin"><option value="KRL"><option value="LabVIEW"><option value="Lasso"><option value="Latte"><option value="Lean"><option value="Less"><option value="Lex"><option value="LFE"><option value="LilyPond"><option value="Limbo"><option value="Linker Script"><option value="Linux Kernel Module"><option value="Liquid"><option value="Literate Agda"><option value="Literate CoffeeScript"><option value="Literate Haskell"><option value="LiveScript"><option value="LLVM"><option value="Logos"><option value="Logtalk"><option value="LOLCODE"><option value="LookML"><option value="LoomScript"><option value="LSL"><option value="Lua"><option value="M"><option value="M4"><option value="M4Sugar"><option value="Makefile"><option value="Mako"><option value="Markdown"><option value="Marko"><option value="Mask"><option value="Mathematica"><option value="Matlab"><option value="Max"><option value="MAXScript"><option value="MediaWiki"><option value="Mercury"><option value="Metal"><option value="MiniD"><option value="Mirah"><option value="Modelica"><option value="Modula-2"><option value="Module Management System"><option value="Monkey"><option value="Moocode"><option value="MoonScript"><option value="MQL4"><option value="MQL5"><option value="MTML"><option value="MUF"><option value="mupad"><option value="Myghty"><option value="NCL"><option value="Nearley"><option value="Nemerle"><option value="nesC"><option value="NetLinx"><option value="NetLinx+ERB"><option value="NetLogo"><option value="NewLisp"><option value="Nextflow"><option value="Nginx"><option value="Nim"><option value="Ninja"><option value="Nit"><option value="Nix"><option value="NL"><option value="NSIS"><option value="Nu"><option value="NumPy"><option value="ObjDump"><option value="Objective-C"><option value="Objective-C++"><option value="Objective-J"><option value="OCaml"><option value="Omgrofl"><option value="ooc"><option value="Opa"><option value="Opal"><option value="OpenCL"><option value="OpenEdge ABL"><option value="OpenSCAD"><option value="OpenType Feature File"><option value="Org"><option value="Ox"><option value="Oxygene"><option value="Oz"><option value="P4"><option value="Pan"><option value="Papyrus"><option value="Parrot"><option value="Parrot Assembly"><option value="Parrot Internal Representation"><option value="Pascal"><option value="PAWN"><option value="Pep8"><option value="Perl"><option value="Perl 6"><option value="PHP"><option value="Pic"><option value="Pickle"><option value="PicoLisp"><option value="PigLatin"><option value="Pike"><option value="PLpgSQL"><option value="PLSQL"><option value="Pod"><option value="PogoScript"><option value="Pony"><option value="PostCSS"><option value="PostScript"><option value="POV-Ray SDL"><option value="PowerBuilder"><option value="PowerShell"><option value="Processing"><option value="Prolog"><option value="Propeller Spin"><option value="Protocol Buffer"><option value="Public Key"><option value="Pug"><option value="Puppet"><option value="Pure Data"><option value="PureBasic"><option value="PureScript"><option value="Python"><option value="Python traceback"><option value="QMake"><option value="QML"><option value="R"><option value="Racket"><option value="Ragel"><option value="RAML"><option value="Rascal"><option value="Raw token data"><option value="RDoc"><option value="REALbasic"><option value="Reason"><option value="Rebol"><option value="Red"><option value="Redcode"><option value="Regular Expression"><option value="Ren'Py"><option value="RenderScript"><option value="reStructuredText"><option value="REXX"><option value="RHTML"><option value="Ring"><option value="RMarkdown"><option value="RobotFramework"><option value="Roff"><option value="Rouge"><option value="RPC"><option value="RPM Spec"><option value="Ruby"><option value="RUNOFF"><option value="Rust"><option value="Sage"><option value="SaltStack"><option value="SAS"><option value="Sass"><option value="Scala"><option value="Scaml"><option value="Scheme"><option value="Scilab"><option value="SCSS"><option value="Self"><option value="ShaderLab"><option value="Shell"><option value="ShellSession"><option value="Shen"><option value="Slash"><option value="Slim"><option value="Smali"><option value="Smalltalk"><option value="Smarty"><option value="SMT"><option value="SourcePawn"><option value="SPARQL"><option value="Spline Font Database"><option value="SQF"><option value="SQL"><option value="SQLPL"><option value="Squirrel"><option value="SRecode Template"><option value="Stan"><option value="Standard ML"><option value="Stata"><option value="STON"><option value="Stylus"><option value="Sublime Text Config"><option value="SubRip Text"><option value="SugarSS"><option value="SuperCollider"><option value="SVG"><option value="Swift"><option value="SystemVerilog"><option value="Tcl"><option value="Tcsh"><option value="Tea"><option value="Terra"><option value="TeX"><option value="Text"><option value="Textile"><option value="Thrift"><option value="TI Program"><option value="TLA"><option value="TOML"><option value="Turing"><option value="Turtle"><option value="Twig"><option value="TXL"><option value="Type Language"><option value="TypeScript"><option value="Unified Parallel C"><option value="Unity3D Asset"><option value="Unix Assembly"><option value="Uno"><option value="UnrealScript"><option value="UrWeb"><option value="Vala"><option value="VCL"><option value="Verilog"><option value="VHDL"><option value="Vim script"><option value="Visual Basic"><option value="Volt"><option value="Vue"><option value="Wavefront Material"><option value="Wavefront Object"><option value="wdl"><option value="Web Ontology Language"><option value="WebAssembly"><option value="WebIDL"><option value="wisp"><option value="World of Warcraft Addon Data"><option value="X10"><option value="xBase"><option value="XC"><option value="XML"><option value="Xojo"><option value="XPages"><option value="XPM"><option value="XProc"><option value="XQuery"><option value="XS"><option value="XSLT"><option value="Xtend"><option value="Yacc"><option value="YAML"><option value="YANG"><option value="YARA"><option value="Zephir"><option value="Zimpl">
+		</datalist>
+		<p></p>
+
+		<label for="language_2_duration">Experience:</label>
+		<input type="checkbox" name="language_2_duration">
+		<p><section class="range-slider">
+			<span class="rangeValues"></span>
+			<input value="6" min="1" max="180" step="1" type="range" name="language_2_duration_1">
+			<input value="24" min="1" max="180" step="1" type="range" name="language_2_duration_2">
+		</section>
+		</p>
+		<br>
+
+		<label for="language_2_frequency">Frequent contributor:</label>
+		<input type="checkbox" name="language_2_frequency" />
+
+		<h4>Skill #3</h4>
+
+		<label for="language_3">Language/Framework:</label>
+  		<input list="language_3" name="language_3">
+		<datalist id="language_3">
+			<option value="1C Enterprise"><option value="ABAP"><option value="ABNF"><option value="ActionScript"><option value="Ada"><option value="Adobe Font Metrics"><option value="Agda"><option value="AGS Script"><option value="Alloy"><option value="AMPL"><option value="AngelScript"><option value="ANTLR"><option value="ApacheConf"><option value="Apex"><option value="API Blueprint"><option value="APL"><option value="Apollo Guidance Computer"><option value="AppleScript"><option value="Arc"><option value="AsciiDoc"><option value="ASN.1"><option value="ASP"><option value="AspectJ"><option value="Assembly"><option value="ATS"><option value="Augeas"><option value="AutoHotkey"><option value="AutoIt"><option value="Awk"><option value="Ballerina"><option value="Batchfile"><option value="Befunge"><option value="Bison"><option value="BitBake"><option value="Blade"><option value="BlitzBasic"><option value="BlitzMax"><option value="Bluespec"><option value="Boo"><option value="Brainfuck"><option value="Brightscript"><option value="Bro"><option value="C"><option value="C-ObjDump"><option value="C#"><option value="C++"><option value="C2hs Haskell"><option value="Cap'n Proto"><option value="CartoCSS"><option value="Ceylon"><option value="Chapel"><option value="Charity"><option value="ChucK"><option value="Cirru"><option value="Clarion"><option value="Clean"><option value="Click"><option value="CLIPS"><option value="Clojure"><option value="Closure Templates"><option value="CMake"><option value="COBOL"><option value="CoffeeScript"><option value="ColdFusion"><option value="ColdFusion CFC"><option value="COLLADA"><option value="Common Lisp"><option value="Common Workflow Language"><option value="Component Pascal"><option value="CoNLL-U"><option value="Cool"><option value="Coq"><option value="Cpp-ObjDump"><option value="Creole"><option value="Crystal"><option value="CSON"><option value="Csound"><option value="Csound Document"><option value="Csound Score"><option value="CSS"><option value="CSV"><option value="Cuda"><option value="CWeb"><option value="Cycript"><option value="Cython"><option value="D"><option value="D-ObjDump"><option value="Darcs Patch"><option value="Dart"><option value="DataWeave"><option value="desktop"><option value="Diff"><option value="DIGITAL Command Language"><option value="DM"><option value="DNS Zone"><option value="Dockerfile"><option value="Dogescript"><option value="DTrace"><option value="Dylan"><option value="E"><option value="Eagle"><option value="Easybuild"><option value="EBNF"><option value="eC"><option value="Ecere Projects"><option value="ECL"><option value="ECLiPSe"><option value="Edje Data Collection"><option value="edn"><option value="Eiffel"><option value="EJS"><option value="Elixir"><option value="Elm"><option value="Emacs Lisp"><option value="EmberScript"><option value="EQ"><option value="Erlang"><option value="F#"><option value="Factor"><option value="Fancy"><option value="Fantom"><option value="Filebench WML"><option value="Filterscript"><option value="fish"><option value="FLUX"><option value="Formatted"><option value="Forth"><option value="Fortran"><option value="FreeMarker"><option value="Frege"><option value="G-code"><option value="Game Maker Language"><option value="GAMS"><option value="GAP"><option value="GCC Machine Description"><option value="GDB"><option value="GDScript"><option value="Genie"><option value="Genshi"><option value="Gentoo Ebuild"><option value="Gentoo Eclass"><option value="Gerber Image"><option value="Gettext Catalog"><option value="Gherkin"><option value="GLSL"><option value="Glyph"><option value="GN"><option value="Gnuplot"><option value="Go"><option value="Golo"><option value="Gosu"><option value="Grace"><option value="Gradle"><option value="Grammatical Framework"><option value="Graph Modeling Language"><option value="GraphQL"><option value="Graphviz (DOT)"><option value="Groovy"><option value="Groovy Server Pages"><option value="Hack"><option value="Haml"><option value="Handlebars"><option value="Harbour"><option value="Haskell"><option value="Haxe"><option value="HCL"><option value="HLSL"><option value="HTML"><option value="HTML+Django"><option value="HTML+ECR"><option value="HTML+EEX"><option value="HTML+ERB"><option value="HTML+PHP"><option value="HTTP"><option value="Hy"><option value="HyPhy"><option value="IDL"><option value="Idris"><option value="IGOR Pro"><option value="Inform 7"><option value="INI"><option value="Inno Setup"><option value="Io"><option value="Ioke"><option value="IRC log"><option value="Isabelle"><option value="J"><option value="Jasmin"><option value="Java"><option value="Java Server Pages"><option value="JavaScript"><option value="JFlex"><option value="Jison"><option value="Jison Lex"><option value="Jolie"><option value="JSON"><option value="JSON5"><option value="JSONiq"><option value="JSONLD"><option value="JSX"><option value="Julia"><option value="Jupyter Notebook"><option value="KiCad Layout"><option value="KiCad Legacy Layout"><option value="KiCad Schematic"><option value="Kit"><option value="Kotlin"><option value="KRL"><option value="LabVIEW"><option value="Lasso"><option value="Latte"><option value="Lean"><option value="Less"><option value="Lex"><option value="LFE"><option value="LilyPond"><option value="Limbo"><option value="Linker Script"><option value="Linux Kernel Module"><option value="Liquid"><option value="Literate Agda"><option value="Literate CoffeeScript"><option value="Literate Haskell"><option value="LiveScript"><option value="LLVM"><option value="Logos"><option value="Logtalk"><option value="LOLCODE"><option value="LookML"><option value="LoomScript"><option value="LSL"><option value="Lua"><option value="M"><option value="M4"><option value="M4Sugar"><option value="Makefile"><option value="Mako"><option value="Markdown"><option value="Marko"><option value="Mask"><option value="Mathematica"><option value="Matlab"><option value="Max"><option value="MAXScript"><option value="MediaWiki"><option value="Mercury"><option value="Metal"><option value="MiniD"><option value="Mirah"><option value="Modelica"><option value="Modula-2"><option value="Module Management System"><option value="Monkey"><option value="Moocode"><option value="MoonScript"><option value="MQL4"><option value="MQL5"><option value="MTML"><option value="MUF"><option value="mupad"><option value="Myghty"><option value="NCL"><option value="Nearley"><option value="Nemerle"><option value="nesC"><option value="NetLinx"><option value="NetLinx+ERB"><option value="NetLogo"><option value="NewLisp"><option value="Nextflow"><option value="Nginx"><option value="Nim"><option value="Ninja"><option value="Nit"><option value="Nix"><option value="NL"><option value="NSIS"><option value="Nu"><option value="NumPy"><option value="ObjDump"><option value="Objective-C"><option value="Objective-C++"><option value="Objective-J"><option value="OCaml"><option value="Omgrofl"><option value="ooc"><option value="Opa"><option value="Opal"><option value="OpenCL"><option value="OpenEdge ABL"><option value="OpenSCAD"><option value="OpenType Feature File"><option value="Org"><option value="Ox"><option value="Oxygene"><option value="Oz"><option value="P4"><option value="Pan"><option value="Papyrus"><option value="Parrot"><option value="Parrot Assembly"><option value="Parrot Internal Representation"><option value="Pascal"><option value="PAWN"><option value="Pep8"><option value="Perl"><option value="Perl 6"><option value="PHP"><option value="Pic"><option value="Pickle"><option value="PicoLisp"><option value="PigLatin"><option value="Pike"><option value="PLpgSQL"><option value="PLSQL"><option value="Pod"><option value="PogoScript"><option value="Pony"><option value="PostCSS"><option value="PostScript"><option value="POV-Ray SDL"><option value="PowerBuilder"><option value="PowerShell"><option value="Processing"><option value="Prolog"><option value="Propeller Spin"><option value="Protocol Buffer"><option value="Public Key"><option value="Pug"><option value="Puppet"><option value="Pure Data"><option value="PureBasic"><option value="PureScript"><option value="Python"><option value="Python traceback"><option value="QMake"><option value="QML"><option value="R"><option value="Racket"><option value="Ragel"><option value="RAML"><option value="Rascal"><option value="Raw token data"><option value="RDoc"><option value="REALbasic"><option value="Reason"><option value="Rebol"><option value="Red"><option value="Redcode"><option value="Regular Expression"><option value="Ren'Py"><option value="RenderScript"><option value="reStructuredText"><option value="REXX"><option value="RHTML"><option value="Ring"><option value="RMarkdown"><option value="RobotFramework"><option value="Roff"><option value="Rouge"><option value="RPC"><option value="RPM Spec"><option value="Ruby"><option value="RUNOFF"><option value="Rust"><option value="Sage"><option value="SaltStack"><option value="SAS"><option value="Sass"><option value="Scala"><option value="Scaml"><option value="Scheme"><option value="Scilab"><option value="SCSS"><option value="Self"><option value="ShaderLab"><option value="Shell"><option value="ShellSession"><option value="Shen"><option value="Slash"><option value="Slim"><option value="Smali"><option value="Smalltalk"><option value="Smarty"><option value="SMT"><option value="SourcePawn"><option value="SPARQL"><option value="Spline Font Database"><option value="SQF"><option value="SQL"><option value="SQLPL"><option value="Squirrel"><option value="SRecode Template"><option value="Stan"><option value="Standard ML"><option value="Stata"><option value="STON"><option value="Stylus"><option value="Sublime Text Config"><option value="SubRip Text"><option value="SugarSS"><option value="SuperCollider"><option value="SVG"><option value="Swift"><option value="SystemVerilog"><option value="Tcl"><option value="Tcsh"><option value="Tea"><option value="Terra"><option value="TeX"><option value="Text"><option value="Textile"><option value="Thrift"><option value="TI Program"><option value="TLA"><option value="TOML"><option value="Turing"><option value="Turtle"><option value="Twig"><option value="TXL"><option value="Type Language"><option value="TypeScript"><option value="Unified Parallel C"><option value="Unity3D Asset"><option value="Unix Assembly"><option value="Uno"><option value="UnrealScript"><option value="UrWeb"><option value="Vala"><option value="VCL"><option value="Verilog"><option value="VHDL"><option value="Vim script"><option value="Visual Basic"><option value="Volt"><option value="Vue"><option value="Wavefront Material"><option value="Wavefront Object"><option value="wdl"><option value="Web Ontology Language"><option value="WebAssembly"><option value="WebIDL"><option value="wisp"><option value="World of Warcraft Addon Data"><option value="X10"><option value="xBase"><option value="XC"><option value="XML"><option value="Xojo"><option value="XPages"><option value="XPM"><option value="XProc"><option value="XQuery"><option value="XS"><option value="XSLT"><option value="Xtend"><option value="Yacc"><option value="YAML"><option value="YANG"><option value="YARA"><option value="Zephir"><option value="Zimpl">
+		</datalist>
+		<p></p>
+
+		<label for="language_3_duration">Experience:</label>
+		<input type="checkbox" name="language_3_duration">
+		<p><section class="range-slider">
+			<span class="rangeValues"></span>
+			<input value="6" min="1" max="180" step="1" type="range" name="language_3_duration_1">
+			<input value="24" min="1" max="180" step="1" type="range" name="language_3_duration_2">
+		</section>
+		</p><br>
+
+		<label for="language_3_frequency">Frequent contributor:</label>
+		<input type="checkbox" name="language_3_frequency" />
+		<hr>
+
+		<label for="results_count">Number of results to return (default 100):</label>
+		<input type="number" name="results_count" value="100">
+		<br>
+
+		<input type="submit" value="Search" />
+
+
+	</form>
+
+<script type="text/javascript">
+	function getVals(){
+		// Get slider values
+		var parent = this.parentNode;
+		var slides = parent.getElementsByTagName("input");
+			var slide1 = parseFloat( slides[0].value );
+			var slide2 = parseFloat( slides[1].value );
+		// Neither slider will clip the other, so make sure we determine which is larger
+		if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
+		
+		var displayElement = parent.getElementsByClassName("rangeValues")[0];
+
+		var text = slide1 >= 12 ? Math.floor(slide1 /12) + " yrs " : "";
+		text += slide1%12 != 0 ? (slide1%12) + " mths" : "";
+		text += " - ";
+		text += slide2 >= 12 ? Math.floor(slide2 /12) + " yrs " : "";
+		text += slide2%12 != 0 ? (slide2%12) + " mths" : "";
+
+		displayElement.innerHTML = text;
+	}
+
+	window.onload = function(){
+		// Initialize Sliders
+		var sliderSections = document.getElementsByClassName("range-slider");
+		for( var x = 0; x < sliderSections.length; x++ ){
+			var sliders = sliderSections[x].getElementsByTagName("input");
+			for( var y = 0; y < sliders.length; y++ ){
+				if( sliders[y].type ==="range" ){
+					sliders[y].oninput = getVals;
+					// Manually trigger event first time to display values
+					sliders[y].oninput();
+				}
+			}
+		}
+	}
+
+
+
+</script>
+</body>
+</html>
