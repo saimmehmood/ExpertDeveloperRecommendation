@@ -1,6 +1,9 @@
 # ExpertDeveloperRecommendation
 A tool designed to work as a search engine to find expert developers based on their skills and experience.
 
+- Built a search engine to find expert developers by utilizing GitHub datasets.
+- Reduced 3TB of data into merely 600 MB by keeping developer specific information such as (number of commits, first and last commit, average time between commits etc.)
+
 ## Overview
 ![](images/overview.PNG)
 
