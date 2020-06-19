@@ -2,7 +2,7 @@
 A tool designed to work as a search engine to find expert developers based on their skills and experience.
 
 ## Overview
-
+![](images/overview.PNG)
 
 ## Abstract
 Global and distributed software development increases the need to find developers with relevant expertise. At
@@ -23,3 +23,15 @@ on their actual code contributions.
 | number of file contents  | 163 million  |
 | size in disk             | 3+TB         |
 
+### Project Goals
+
+A search engine that:
+- can be used to search for expert developers 
+- provides search criteria for developers’ skills and experience
+- bases results on actual contributions
+- uses a very large dataset of possible experts (20+ million)
+- search queries are reasonably fast
+- can be extended to include more criteria (code quality, bugs introduced, etc.)
+
+#### For Details 
+- ExpertDeveloperRecommendation (Report).pdf
